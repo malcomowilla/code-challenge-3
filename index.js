@@ -1,54 +1,31 @@
-// Challenge 3: Speed Detector (Toy Problem)
-let speed = 124;
-let dimerit;
-if (speed<=70) {
-    console.log('ok');
-}
-else if (speed<=75){
-    dimerit = 1
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=80){
-    dimerit =2
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=85){
-    dimerit =3
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=90){
-    dimerit =4
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=95){
-    dimerit =5
-    console.log(`dimerit:${dimerit}`);
-
-}
-else if (speed<=100){
-    dimerit =6
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=105){
-    dimerit =7
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=110){
-    dimerit =8
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=115){
-    dimerit =9
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=120){
-    dimerit =10
-    console.log(`dimerit:${dimerit}`);
-}
-else if (speed<=125){
-    dimerit =11
-    console.log(`dimerit:${dimerit}`);
-}
-else {
-    console.log ("license suspended")
-}
+ function getSpeed()
+              {
+                var value = document.form.speed.value
+                if(isNaN(value)){
+                    alert("input should only include numbers");
+                      return false;
+                }
+                  if(value.length=="") {
+                      alert("messagebox is empty");
+                      return false;
+                  }
+                  if (parseInt(value)<0 || parseInt(value)>240) {
+                    alert("values should range between 0 - 240");
+                      return false;
+                  }
+                  switch (true) {
+                    case (value<=70):
+                        alert("OK")
+                        break;
+                    default:
+                         getDemerits(value);
+                        break;
+                  }
+                  return false;
+              }
+             function getDemerits(speed){
+                var extra_kmh = parseFloat(speed)-70.0;
+                var demerits = extra_kmh/5;
+                alert(Math.round(demerits));
+                return false;
+             }
